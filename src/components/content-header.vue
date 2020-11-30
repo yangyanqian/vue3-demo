@@ -6,7 +6,7 @@
     </div>
     <h4>你已被赞{{count}}次</h4>
     <div class="edit" v-show="editIsShow">
-      <my-icon id="icon-tuichu" color="text-white" size="35"></my-icon>
+      <my-icon id="icon-tuichu" color="text-white" size="35" @click="edit()"></my-icon>
     </div>
     
   </div>
@@ -36,12 +36,15 @@
       let router = useRouter();
       editIsShow = computed(() => {
         const { path } = router.currentRoute.value;
-        console.log(path);
+        // console.log(path);
         return path == "/" ? false : true;
       })
-      console.log(editIsShow);
+      const edit = (step = -1) => {
+        router.go(-1);
+      }
       return {
-        editIsShow
+        editIsShow,
+        edit
       }
     },
   }
