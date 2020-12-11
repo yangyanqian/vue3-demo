@@ -40,7 +40,7 @@
         return path == "/" ? false : true;
       })
       const edit = (step = -1) => {
-        router.go(-1);
+        router.go(step);
       }
       return {
         editIsShow,
